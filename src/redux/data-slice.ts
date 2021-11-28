@@ -23,6 +23,7 @@ export const dataSlice = createSlice({
   reducers: {
     updateData: (state, action: ActionInterface) => {
       if (action.payload === null) return;
+      if (action.payload === undefined) throw new Error('Failed to connect');
       state.value = action.payload;
     },
   },
