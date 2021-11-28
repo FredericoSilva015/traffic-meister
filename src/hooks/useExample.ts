@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import type { VehicleTypes } from 'types';
 
-export const useExample = (text: string) => {
-  const [test, setTest] = useState<String>(text);
+export const useCreateDataArray = (text: VehicleTypes[]) => {
+  const [data, setdata] = useState<VehicleTypes[]>(text);
 
-  const changeExample = (value: String): void => setTest(value);
+  const changeDataArray = (value: VehicleTypes[]): void => setdata(value);
 
-  const outputExample = (): String => test;
+  const outputDataArray = (): VehicleTypes[] => data;
 
-  return { changeExample, outputExample };
+  return { changeDataArray, outputDataArray };
 };
