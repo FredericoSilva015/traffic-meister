@@ -3,7 +3,7 @@
     "jsx": "react-jsx",
     "target": "es5",
     "module": "esnext",
-    "baseUrl": "./",
+    "baseUrl": "src",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -22,6 +22,6 @@
     "noEmit": true
   },
   "include": [
-    "src"
-  ]
+    "src",
+    "undefined.d.ts"  ]
 }
