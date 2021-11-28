@@ -3,12 +3,19 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ErrorBoundary } from './components';
+import { ErrorBoundary } from 'components';
+import { store } from 'redux/store';
+import { incrementAsync } from 'redux/data-slice';
+import { Provider } from 'react-redux';
+
+store.dispatch(incrementAsync());
 
 ReactDOM.render(
   <React.StrictMode>
     <ErrorBoundary>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
