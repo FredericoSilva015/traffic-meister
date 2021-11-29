@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import type { VehicleTypes } from 'types';
 
+interface OutputInterface {
+  type: string | null;
+  colors: string | null;
+  brand: string | null;
+}
+
 export const useDataArray = (mainData: VehicleTypes[]) => {
   const [data, setData] = useState<VehicleTypes[]>(mainData);
   const [brand, setBrand] = useState<string | null>(null);
@@ -27,8 +33,8 @@ export const useDataArray = (mainData: VehicleTypes[]) => {
     setData(filteredData);
   }, [brand, colors, type, mainData]);
 
-  const outputBrand = (): string[] => data.map((value) => value.brand);
-  const outputType = (): string[] => {
+  const optionsBrand = (): string[] => data.map((value) => value.brand);
+  const optionsType = (): string[] => {
     const typesArray: string[] = data.map((value) => value.type);
 
     // typescript shenanigans...
@@ -39,7 +45,7 @@ export const useDataArray = (mainData: VehicleTypes[]) => {
     return filteredArray;
   };
 
-  const outputColor = (): string[] => {
+  const optionsColor = (): string[] => {
     const colorArray = data.map((value) => value.colors);
     const filteredArray = [...Array.from(new Set(colorArray.flat()))];
     return filteredArray;
@@ -67,10 +73,16 @@ export const useDataArray = (mainData: VehicleTypes[]) => {
     }
   };
 
+  const outputFilterValues = (): OutputInterface => {
+    const test = { brand: brand, type: type, colors: colors };
+    return test;
+  };
+
   return {
-    outputBrand,
-    outputType,
-    outputColor,
+    optionsBrand,
+    optionsType,
+    optionsColor,
     setFilter,
+    outputFilterValues,
   };
 };
