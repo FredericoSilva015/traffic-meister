@@ -6,7 +6,9 @@
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
     "@material-ui/core": "^5.0.0-beta.5",
+    "@mui/material": "^5.2.2",
     "@reduxjs/toolkit": "^1.6.2",
+    "@testing-library/react": "^12.1.2",
     "cra-template-typescript": "1.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -21,6 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -42,6 +45,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.15.1",
+    "@types/jest": "^27.0.3",
     "@types/react": "^17.0.35",
     "@types/react-dom": "^17.0.11"
   }

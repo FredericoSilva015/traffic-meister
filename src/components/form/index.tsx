@@ -1,4 +1,4 @@
-import { Autocomplete, TextField } from '@material-ui/core';
+import { Autocomplete, TextField, Typography } from '@material-ui/core';
 import { Box } from '@material-ui/system';
 import { useDataArray } from 'hooks/use-data-array';
 import { useSelector } from 'react-redux';
@@ -7,19 +7,23 @@ import { RootState } from 'redux/store';
 export const Form = (): JSX.Element => {
   const mainData = useSelector((state: RootState) => state.data.value);
   const dataState = useDataArray(mainData);
-  // const filteredValues = dataState.outputFilterValues();
 
   const autoCompleteStyles = {
     maxWidth: 500,
-    minWidth: 320,
+    minWidth: 220,
+    width: '100%',
+    height: '100%',
     margin: '10px 0',
   };
 
   const result = {
     border: '1px solid rgb(25, 118, 210)',
-    padding: 10,
-    borderRadius: 4,
+    padding: '10px',
+    marginBottom: '10px',
+    borderRadius: 1,
   };
+
+  const resultSpan = { color: 'rgb(25, 118, 210)', fontWeight: 'bold' };
 
   return (
     <Box sx={{ alignSelf: 'baseline' }}>
@@ -46,24 +50,18 @@ export const Form = (): JSX.Element => {
         renderInput={(params) => <TextField {...params} label="Select Color" />}
       />
 
-      <p style={result}>
+      <Typography component="p" sx={result}>
         Type:{' '}
-        <span style={{ color: 'rgb(25, 118, 210)', fontWeight: 'bold' }}>
-          {dataState.outputFilterValues().type}
-        </span>
-      </p>
-      <p style={result}>
+        <span style={resultSpan}>{dataState.outputFilterValues().type}</span>
+      </Typography>
+      <Typography component="p" sx={result}>
         Brand:{' '}
-        <span style={{ color: 'rgb(25, 118, 210)' }}>
-          {dataState.outputFilterValues().brand}
-        </span>
-      </p>
-      <p style={{ ...result, ...{ marginBottom: 0 } }}>
+        <span style={resultSpan}>{dataState.outputFilterValues().brand}</span>
+      </Typography>
+      <Typography component="p" sx={{ ...result, ...{ marginBottom: 0 } }}>
         Colors:{' '}
-        <span style={{ color: 'rgb(25, 118, 210)', fontWeight: 'bold' }}>
-          {dataState.outputFilterValues().colors}
-        </span>
-      </p>
+        <span style={resultSpan}>{dataState.outputFilterValues().colors}</span>
+      </Typography>
     </Box>
   );
 };
