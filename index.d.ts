@@ -1,6 +1,6 @@
 declare module 'svg-loaders-react';
 
-// Not sure why it isn't picking up yet
+// It isn't picking up, need to take a longer look on this aspect
 // declare module 'test' {
 //   import trafficMeister from 'service';
 //   import type { VehicleTypes } from 'type';
