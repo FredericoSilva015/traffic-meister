@@ -4,6 +4,8 @@
 
 - run 'yarn' for installation
 - run 'yarn start' will start the application
+- run 'yarn test' will test the application
+- run 'yarn build' will build the application
 - deployment follows the same guidelines for create react app: https://create-react-app.dev/docs/deployment/
 
 ## The Traffic Meister application assignment
