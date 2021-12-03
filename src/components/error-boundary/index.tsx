@@ -38,7 +38,7 @@ export class ErrorBoundary extends Component<Props, State> {
             alignItems: 'center',
             backgroundColor: '#000',
           }}>
-          <Box sx={{ width: 500 }}>
+          <Box sx={{ minWidth: 500 }}>
             <Alert severity="error">
               <AlertTitle>Error</AlertTitle>
               Error Message: <strong>{this.state.message}</strong>
